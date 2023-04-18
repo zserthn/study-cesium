@@ -34,6 +34,8 @@ CesiumJS에서 사용하는 데이터를 로드하고 표시하기 위한 모듈
 이 모듈은 WebGL 렌더링 컨텍스트를 생성하고, 사용자 입력 및 기타 이벤트 처리, 뷰 포인트 및 카메라 제어 등을 담당합니다.<br>
 Scene 객체는 Viewer 객체의 일부분이며, Viewer 객체를 생성할 때 Scene 객체가 자동으로 생성됩니다.
 
+![Scene structure](./img/sceneOverview.png)
+
 ### 렌더링
  >Scene 객체는 WebGL을 사용하여 지형, 엔티티, 모델 등을 렌더링합니다.<br> 
  Scene 객체는 이 API를 사용하여 3D 지도를 생성하고 렌더링합니다.
