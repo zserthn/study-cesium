@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     context: __dirname,
     entry: {
-        app: './src/index.js'
+        app: './src/ptzero/wms/index.js'
     },
     output: {
         filename: 'app.js',
