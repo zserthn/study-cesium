@@ -1,6 +1,6 @@
 import * as Cesium from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
-import "../css/main.css"
+import "../../css/main.css"
 
 // Your access token can be found at: https://cesium.com/ion/tokens.
 // This is the default access token
@@ -16,13 +16,13 @@ viewer.dataSources.add(Cesium.GeoJsonDataSource.load(`http://api.vworld.kr/req/w
 SERVICE=WFS&
 REQUEST=GetFeature&
 TYPENAME=lt_c_uq111&
-PROPERTYNAME=mnum,sido_cd,sigungu_cd,dyear,dnum,ucode,bon_bun,bu_bun,uname,sido_name,sigg_name,ag_geom&
+PROPERTYNAME=sido_cd,sigungu_cd,uname,sido_name,sigg_name,ag_geom&
 VERSION=1.1.0&
-MAXFEATURES=40&
+MAXFEATURES=1000&
 SRSNAME=EPSG:4326&
 OUTPUT=application/json&
 EXCEPTIONS=text/xml&
-KEY=682E3A4E-662A-3100-AA4C-AA7DEFFE65E5&
+KEY=${vworld_key}&
 DOMAIN=http://localhost:8080
 `),{
   stroke : Cesium.Color.WHEAT,
