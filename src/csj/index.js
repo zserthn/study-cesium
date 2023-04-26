@@ -135,7 +135,7 @@ viewer.screenSpaceEventHandler.setInputAction(function(event) {
                 material: Cesium.Color.BLUE.withAlpha(0.5)//색상
             }
         });
-    } 
+    }   
 }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
 
 
