@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?><Root><Name>test</Name>
+<Title></Title>
+<SRS>EPSG:3857</SRS>
+<BoundingBox minx="14367190.198236253" miny="4185182.2658263254" minz="0" maxx="14367294.610893512" maxy="4185304.027661387" maxz="152.65046273431824"/><Location x="129.06313081040494" y="35.157041587286884" z="0"/>
+<Scale x="0.6834065002040006" y="0.6834065002040006" z="0.6834065002040006"/>
+<Rotation x="0" y="0" z="-90.08056264088667"/>
+<Format>3ds</Format><ModelUrl>Build11_3ds</ModelUrl><TextureUrl></TextureUrl></Root>
