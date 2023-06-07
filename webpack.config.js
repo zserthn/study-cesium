@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     context: __dirname,
     entry: {
-        app: './src/ldH/3dTiles/index.js'
+        app: './src/hjkim/3dTiles/index.js'
     },
     output: {
         filename: 'app.js',
