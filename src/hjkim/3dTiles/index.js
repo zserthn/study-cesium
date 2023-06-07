@@ -21,38 +21,42 @@ var viewer = new Cesium.Viewer("cesiumContainer",{
     baseLayerPicker: false
 });
 
-var tileset = new Cesium.Cesium3DTileset({
-    url: 'https://skymaps.co.kr/map/tileset/gangnam/tileset.json?api_key=66dd0019-905a-4d66-a0b7-eed7c418dbf0&api_key=66dd0019-905a-4d66-a0b7-eed7c418dbf0'
-  });
-  
-  viewer.scene.primitives.add(tileset);
-
 viewer.camera.setView({
     destination: new Cesium.Cartesian3(-3756512.992115552, 5003744.628566555, 4786760.616010258)
+  });
+    
+  viewer._cesiumWidget._creditContainer.style.display = "none";
+
+  var tileset = new Cesium.Cesium3DTileset({
+    url: 'https://skymaps.co.kr/map/tileset/gangnam/tileset.json?api_key=66dd0019-905a-4d66-a0b7-eed7c418dbf0&api_key=66dd0019-905a-4d66-a0b7-eed7c418dbf0'
 });
 
+// 3D Tiles 데이터 소스를 뷰어에 추가합니다.
+viewer.scene.primitives.add(tileset);
+
+
+/**
+ * 타일 중심점으로 이동
+ */
+
+// 3D Tiles 데이터 소스를 로드합니다.
 tileset.readyPromise.then(function(tileset) {
-    // 3D Tiles의 경계 구 정보 가져오기
-    var boundingSphere = tileset.boundingSphere;
-    
-    // 경계 구의 중심 좌표 계산
-    var center = Cesium.Matrix4.multiplyByPoint(tileset.modelMatrix, boundingSphere.center, new Cesium.Cartesian3());
-    
-    // 경계 구의 반지름 계산
-    var radius = boundingSphere.radius;
-    
-    // 카메라 이동할 위치 계산
-    var destination = Cesium.Cartesian3.fromElements(center.x, center.y, center.z + radius * 4);
-    
-    // 카메라 이동
-    viewer.camera.flyTo({
-        destination: destination,
-        orientation: {
-            heading: Cesium.Math.toRadians(0),
-            pitch: Cesium.Math.toRadians(-90),
-            roll: Cesium.Math.toRadians(0)
+    // readyPromise : 로드가 완료된 이후에 데이터 소스가 자동으로 화면에 표시됩니다.
+    var tileBoundingSphere = tileset.boundingSphere; // -> 타일의 위치좌표 얻을 수 있다.
+    var cameraPosition = tileBoundingSphere.center;
+    var cameraDirection = Cesium.Cartesian3.negate(Cesium.Cartesian3.UNIT_Y, new Cesium.Cartesian3());
+    var cameraUp = Cesium.Cartesian3.clone(Cesium.Cartesian3.UNIT_Y);
+    var cameraView = {
+        destination: cameraPosition,
+        orientation: {  // 카메라 방향 설정
+            direction: cameraDirection,
+            up: cameraUp
         }
-    });
+    };
+
+    // 카메라를 초기 세팅으로 설정합니다.
+    viewer.scene.camera.setView(cameraView);
+}).otherwise(function(error) {
+    // 로드 중에 오류가 발생한 경우 오류 처리를 수행합니다.
+    console.log(error);
 });
-    
-viewer._cesiumWidget._creditContainer.style.display = "none";

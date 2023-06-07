@@ -36,7 +36,6 @@ var vworldWTMSImageryProvider = new Cesium.WebMapTileServiceImageryProvider({
 const vworldWTMSImageryLayer = new Cesium.ImageryLayer(vworldWTMSImageryProvider);
 viewer.imageryLayers.add(vworldWTMSImageryLayer);
 
-
 viewer.camera.setView({
   destination: new Cesium.Cartesian3(-3756512.992115552, 5003744.628566555, 4786760.616010258)
 });

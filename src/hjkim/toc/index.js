@@ -67,6 +67,8 @@ const wmsProvider = new Cesium.UrlTemplateImageryProvider({
 const wmsImageryLayer = new Cesium.ImageryLayer(wmsProvider);
 viewer.imageryLayers.add(wmsImageryLayer);
 
+
+
 viewer.camera.setView({
   destination: new Cesium.Cartesian3(
     -3756512.992115552,
